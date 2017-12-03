@@ -1,0 +1,38 @@
+#header{
+    color: white;
+}
+
+#user{
+    position: absolute;
+    top: 0px;
+    left: 220px;
+}
+#search{
+    position: absolute;
+    top: 6px;
+    right: 10px;
+}
+body{
+    background: #2E363F;
+}
+#breadcrumb{
+    background-color: #fff;
+}
+#content{
+    margin-left: 220px;
+    background: #eeeeee;
+}
+#content-header{
+    margin-top: -15px;
+}
+.dash{
+    padding: 10px;
+    /* background-color: pink; */
+}
+.quick{
+    height: 500px;
+}
+#side{
+    display: block;
+    position: absolute;
+}
