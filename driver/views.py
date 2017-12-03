@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .forms import ProfileForm
+from django.shortcuts import render,redirect
+from .forms import ProfileForm,ProfForm
+from .models import Profile
 
 # Create your views here.
 def index(request):
@@ -10,4 +11,20 @@ def home(request):
 
 def setup(request):
     form=ProfileForm()
+    if request.method=='POST':
+        profile_form=ProfileForm(request.POST)
+        print('<><><>half way<><>>')
     return render(request,'setup_profile.html',{'form':form})
+
+def create_profile(request):
+    print ('<><><><><almost there<><><><><')
+    form=ProfForm()
+    if request.method=='POST':
+        profile_form=ProfForm(request.POST)
+        # profile_form.User=request.user
+        # profile_form.Profile.Create()
+        Profile.objects.create(User=request.user,home=profile_form.data['home'],number_plate=profile_form.data['number_plate'],destination=profile_form.data['destination'],color=profile_form.data['color'],capacity=profile_form.data['capacity'])
+
+        home=profile_form.data['capacity']
+        print(profile_form.data['number_plate'])
+    return redirect('homedr')
