@@ -28,3 +28,17 @@ def create_profile(request):
         home=profile_form.data['capacity']
         print(profile_form.data['number_plate'])
     return redirect('homedr')
+def edit_profile(request):
+    form=ProfileForm()
+    if request.method=='POST':
+        profile_form=ProfileForm(request.POST,instance=request.user.profile)
+        
+        print('<><><>almost<><><><>')
+        if profile_form.is_valid():
+            prof=profile_form.save(commit=False)
+            prof.User=request.user
+            prof.save()
+            print('<><><>almost almost <><><><>')
+            
+            
+    return render(request,'edit_profile.html',{'form':form})

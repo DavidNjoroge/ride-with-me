@@ -15,7 +15,7 @@
                 <!-- <li><a href="">welcome User</a></li> -->
                 <li><a href="">Messages</a></li>
                 {% if user.is_authenticated %}
-                <li><a href="/accounts/profile">Profile</a></li>
+                <li><a href="/driver/edit_profile">Profile</a></li>
                 <li><a href="/logout">Logout</a></li>
                 {% else %}
                 <li><a href="/accounts/login">Login</a></li>
@@ -25,6 +25,14 @@
     </div>
     <div id="search">
         <input type="text" placeholder="search here...">  
+    </div>
+    <div id="sidebar">
+        <ul id="side">
+            <li class="dash"><a href="">Dashboard</a></li>
+            <li class="dash"><a href="">chart</a></li>
+            <li class="dash"><a href="">Dashboard</a></li>
+            <li class="dash"><a href="">Dashboard</a></li>            
+        </ul>
     </div>
 </body>
 </html>

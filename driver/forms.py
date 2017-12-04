@@ -12,4 +12,8 @@ class ProfForm(forms.Form):
     plate=forms.CharField(label='Number plate',max_length=30)
     color=forms.CharField(label='Car color',max_length=30)
     capacity=forms.IntegerField(label='car capacity')
-    
+
+# class ProfilePForm(forms.ModelForm):
+#     class Meta:
+#         model = Profile
+#         fields=('home','destination','number_plate','color','capacity')

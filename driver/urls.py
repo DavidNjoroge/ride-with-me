@@ -6,6 +6,6 @@ urlpatterns=[
     url(r'^home/$',views.home,name='homedr'),
     url(r'^setup/$',views.setup,name='profile_setup'),
     url(r'^create_profile',views.create_profile,name='create_profile'),
-    url(r'^edit_profile',views.edit_profile,name='edit_profile')
+    url(r'^edit_profile/',views.edit_profile,name='edit_profile')
 
 ]
