@@ -26,7 +26,7 @@ SECRET_KEY = '7(&)5qt3m#5c*_%ct9u%2$61v(1^n484s(18$09(_9t+z$7@sx'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+GOOGLE_MAPS_API_KEY='AIzaSyDwKXnguqxL1YRjWPSh00Wt6d2XlqW68qs'
 
 # Application definition
 

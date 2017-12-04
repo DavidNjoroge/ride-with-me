@@ -29,10 +29,43 @@ body{
     padding: 10px;
     /* background-color: pink; */
 }
-.quick{
-    height: 500px;
-}
 #side{
     display: block;
     position: absolute;
+}
+.widget{
+    color: black;
+    background: #F9F9F9;
+    border:  1px solid #CDCDCD
+    
+}
+.widget-title{
+    background: #efefef;
+}
+img{
+    height: 10px;
+    width: 100%;
+}
+.profile{
+    padding: 20px;
+    width: 100%;
+    
+}
+.profile-box{
+    padding: 0px;
+    border:  1px solid #CDCDCD
+    
+}
+.profile-body{
+    /* height: 50px; */
+    border:  1px solid #CDCDCD;
+    
+    background: #F9F9F9;
+}
+#map-sample{
+    margin-top: 10px;
+    height: 200px;
+    border:  1px solid #CDCDCD;
+    
+    background: #F9F9F9;
 }
