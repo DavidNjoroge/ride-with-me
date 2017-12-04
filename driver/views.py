@@ -6,21 +6,22 @@ from .models import Profile
 def index(request):
     return render(request,'index.html')
 
+# @login_required(login_url='')
 def home(request):
     return render(request,'home.html')
 
 def setup(request):
     form=ProfileForm()
     if request.method=='POST':
-        profile_form=ProfileForm(request.POST)
+        profile_form=ProfileForm(request.POST,files=request.FILES)
         print('<><><>half way<><>>')
     return render(request,'setup_profile.html',{'form':form})
 
 def create_profile(request):
     print ('<><><><><almost there<><><><><')
-    form=ProfForm()
+    form=ProfileForm()
     if request.method=='POST':
-        profile_form=ProfForm(request.POST)
+        profile_form=ProfileForm(request.POST)
         # profile_form.User=request.user
         # profile_form.Profile.Create()
         Profile.objects.create(User=request.user,home=profile_form.data['home'],number_plate=profile_form.data['number_plate'],destination=profile_form.data['destination'],color=profile_form.data['color'],capacity=profile_form.data['capacity'])

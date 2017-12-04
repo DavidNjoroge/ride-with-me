@@ -14,6 +14,17 @@
             <div class="row">
                 <div class="col-md-4">
                     <img src="{{user.profile.profile_pic.url}}" class="img-thumbnail" alt="">
+                    <div class="friends">
+                        <div class="title">
+                            <h5><strong><a href="/driver/passengers">Passengers:  </a>{{user.username}}</strong></h5>
+                        </div>
+                        <div class="profile-body">
+                            <p><strong>home location:</strong> <span id="home">{{user.profile.home}}</span></p>
+                            <p><strong>work location:</strong> <span id="work">Nairobi</span></p>
+                            <p><strong>Capacity:</strong> 4</p>
+                            
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-8 profile-box">
                     <div class="title">
@@ -25,25 +36,23 @@
                         <p><strong>Capacity:</strong> 4</p>
                         
                     </div>
-                    <div id="map-sample">
+                    <div class='map'>
+                        <div class="title">
+                            <h5><strong><a href="/driver/map">MAP:  </a></strong></h5>
+                        </div>
+                        <div id="map-sample">
 
+                        </div>
                     </div>
                 </div>
             </div>    
         </div>
-        <div class="container-fluid">
-            <div class="widget">
-                <div class="widget-title">
-                    <h5><strong>latest posts</strong></h5>
-                </div>
-                <div class="widget-container">
 
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 {% endblock %}
-{% block scripts %}{{block.super}}
-<script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+{% block scripts %}
+{{block.super}}
+<script type="text/javascript" src="{% static 'js/map.js' %}"></script>
+{% bootstrap_javascript %}
 {% endblock %}
