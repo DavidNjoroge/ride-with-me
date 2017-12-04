@@ -27,7 +27,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://ride-withme.herokuapp.com/']
 GOOGLE_MAPS_API_KEY='AIzaSyDwKXnguqxL1YRjWPSh00Wt6d2XlqW68qs'
 
 # Application definition
