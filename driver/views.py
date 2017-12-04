@@ -1,12 +1,14 @@
 from django.shortcuts import render,redirect
 from .forms import ProfileForm,ProfForm
 from .models import Profile
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 def index(request):
     return render(request,'index.html')
 
-# @login_required(login_url='')
+@login_required(login_url='/driver/accounts/login/')
 def home(request):
     return render(request,'home.html')
 
