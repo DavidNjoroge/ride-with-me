@@ -29,3 +29,7 @@ class Profile(models.Model):
 #     # address = map_fields.AddressField(max_length=30)
 #     address = map_fields.AddressField(max_length=200)
 #     geolocation = map_fields.GeoLocationField(max_length=100)
+# class Home(models.Model):
+#     # address = map_fields.AddressField(max_length=30)
+#     address = map_fields.AddressField(max_length=200)
+#     geolocation = map_fields.GeoLocationField(max_length=100)
