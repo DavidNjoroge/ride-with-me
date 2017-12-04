@@ -31,7 +31,7 @@ def create_profile(request):
 def edit_profile(request):
     form=ProfileForm()
     if request.method=='POST':
-        profile_form=ProfileForm(request.POST,instance=request.user.profile)
+        profile_form=ProfileForm(request.POST,instance=request.user.profile,files=request.FILES)
         
         print('<><><>almost<><><><>')
         if profile_form.is_valid():

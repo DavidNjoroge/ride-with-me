@@ -13,11 +13,11 @@
         <div class="container profile">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="noah.jpg" class="img-thumbnail" alt="">
+                    <img src="{{user.profile.profile_pic.url}}" class="img-thumbnail" alt="">
                 </div>
                 <div class="col-md-8 profile-box">
                     <div class="title">
-                        <h5><strong>{{user.username}}</strong></h5>
+                        <h5><strong><a href="/driver/passengers">Profile:  </a>{{user.username}}</strong></h5>
                     </div>
                     <div class="profile-body">
                         <p><strong>home location:</strong> <span id="home">{{user.profile.home}}</span></p>
