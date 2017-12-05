@@ -8,4 +8,4 @@ urlpatterns=[
     url(r'^create_profile',views.create_profile,name='create_profile'),
     url(r'^edit_profile/',views.edit_profile,name='edit_profile'),
     url(r'^accounts/', include('registration.backends.simple.urls')),
-]
+] 

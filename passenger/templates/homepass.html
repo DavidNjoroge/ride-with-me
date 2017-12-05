@@ -1,12 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>this is the homepage for a passenger</h1>
-</body>
-</html>
+{% extends 'basep.html' %}
+{% load static %}
+{% block content %}
+{{block.super}}
+{% load bootstrap3 %}
+<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb">
+            <a href="">Home</a>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="container profile">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{{user.profile.profile_pic.url}}" class="img-thumbnail" alt="">
+                    <div class="friends">
+                        <div class="title">
+                            <h5><strong><a href="/driver/passengers">Passengers:  </a>{{user.username}}</strong></h5>
+                        </div>
+                        <div class="profile-body">
+                            <p><strong>home location:</strong> <span id="home">{{user.profile.home}}</span></p>
+                            <p><strong>work location:</strong> <span id="work">Nairobi</span></p>
+                            <p><strong>Capacity:</strong> 4</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 profile-box">
+                    <div class="title">
+                        <h5><strong><a href="/driver/passengers">Profile:  </a>{{user.username}}</strong></h5>
+                    </div>
+                    <div class="profile-body">
+                        <p><strong>home location:</strong> <span id="home">{{user.profile.home}}</span></p>
+                        <p><strong>work location:</strong> <span id="work">Nairobi</span></p>
+                        <p><strong>Capacity:</strong> 4</p>
+                        
+                    </div>
+                    <div class='map'>
+                        <div class="title">
+                            <h5><strong><a href="/driver/map">MAP:  </a></strong></h5>
+                        </div>
+                        <div id="map-sample">
+
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+{{block.super}}
+<script type="text/javascript" src="{% static 'js/map.js' %}"></script>
+{% bootstrap_javascript %}
+{% endblock %}
