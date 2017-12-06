@@ -1,5 +1,5 @@
 {% load bootstrap3 %}
-<form action='{%url "create_profile"%}' method="post">
+<form action='/driver/setup' method="post">
     {% csrf_token %} 
     {% bootstrap_form form%}
     <input type="submit" value="Submit" />
