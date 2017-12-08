@@ -1,6 +1,7 @@
 {%extends 'basep.html'%}  
 {% load bootstrap3 %} 
 {% block content %}
+{% load static %}
 <div id="content">
   <div id="content-header">
       <div id="breadcrumb">
@@ -16,7 +17,15 @@
             <input type="submit" value="Submit" />
           </form>
       </div>
+      <div id="map">
+
+      </div>
   </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+<!-- <script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAfeePmXWfr3eKsSfpBlGsycHdES0kyOsI&libraries=places,geometry"></script> -->
+<script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAfeePmXWfr3eKsSfpBlGsycHdES0kyOsI&libraries=places,geometry"></script>
+<script type="text/javascript" src="{% static 'js/profile_setup.js' %}"></script>
 
   {% endblock %}

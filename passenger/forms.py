@@ -6,3 +6,6 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model=Passenger_Profile
         fields=('home','destination')
+    def __init__(self,*args,**kwargs):
+        super(ProfileForm,self).__init__(*args,**kwargs)
+        self.fields['home'].attrs={'id':'sddsfsdf'}
