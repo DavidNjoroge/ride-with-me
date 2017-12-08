@@ -9,7 +9,7 @@ def index(request):
 
     return render(request,'index.html')
 
-@login_required(login_url='/driver/accounts/login/')
+@login_required(login_url='/accounts/login/')
 def home(request):
     are=Profile.objects.filter(User=request.user)
     print(len(are))
