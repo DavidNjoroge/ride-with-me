@@ -6,15 +6,13 @@
 </head>
 <body>
     <div id="header">
-        <h1><a href="/driver">{{user.username}}ffdfddf</a></h1>
+        <h1><a href="/passenger">{{user.username}}</a></h1>
     </div>
     <div class="contaier">
         <div class="navbar navbar-inverse" id="user">
             <ul class="nav navbar-nav">
-                <!-- <li><a href="">welcome User</a></li> -->
-                <!-- <li><a href="">Messages</a></li> -->
                 {% if user.is_authenticated %}
-                <li><a href="/driver/edit_profile">Profile</a></li>
+                <li><a href="/passenger/edit_profile">Profile</a></li>
                 <li><a href="/logout">Logout</a></li>
                 {% else %}
                 <li><a href="/accounts/login">Login</a></li>
@@ -27,7 +25,7 @@
     </div>
     <div id="sidebar">
         <ul id="side">
-            <li class="dash"><a href="/driver">HOME</a></li>
+            <li class="dash"><a href="/passenger/">HOME</a></li>
             <li class="dash"><a href="/driver/passengers">PASSENGERS</a></li>
             <li class="dash"><a href="">MAP</a></li>
         </ul>

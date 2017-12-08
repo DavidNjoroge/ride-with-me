@@ -19,5 +19,17 @@ def setup(request):
             profile=profile_form.save(commit=False)
             profile.User=request.user
             profile.save()
-            # print('<><><>half way<><>>')
     return render(request,'setup_profile_passenger.html',{'form':form})
+def edit_profile(request):
+    form=ProfileForm()
+    if request.method=='POST':
+        profile_form=ProfileForm(request.POST,instance=request.user.profile,files=request.FILES)
+
+        print('<><><>almost<><><><>')
+        if profile_form.is_valid():
+            prof=profile_form.save(commit=False)
+            prof.User=request.user
+            prof.save()
+            print('<><><>almost almost <><><><>')
+    
+    return render(request,'edit_profile_passenger.html',{'form':form})
