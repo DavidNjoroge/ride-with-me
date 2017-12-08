@@ -23,7 +23,7 @@ def setup(request):
 def edit_profile(request):
     form=ProfileForm()
     if request.method=='POST':
-        profile_form=ProfileForm(request.POST,instance=request.user.profile,files=request.FILES)
+        profile_form=ProfileForm(request.POST,instance=request.user.passenger_profile)
 
         print('<><><>almost<><><><>')
         if profile_form.is_valid():
