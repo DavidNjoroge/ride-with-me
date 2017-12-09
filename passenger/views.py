@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .forms import ProfileForm
 from .models import Passenger_Profile
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 @login_required(login_url='/accounts/login/')
 def homeq(request):
@@ -29,7 +31,21 @@ def edit_profile(request):
         if profile_form.is_valid():
             prof=profile_form.save(commit=False)
             prof.User=request.user
-            prof.save()
+            # prof.save()
             print('<><><>almost almost <><><><>')
     
     return render(request,'edit_profile_passenger.html',{'form':form})
+@csrf_exempt
+def ajax_locale(request):
+    home_lat=request.POST.get('home_lat')
+    home_lng=request.POST.get('home_lng')
+    dest_lat=request.POST.get('dest_lat')
+    dest_lng=request.POST.get('dest_lng')
+    user_id=request.POST.get('user_id')
+
+    profile_up=Passenger_Profile()
+    
+    print(user_id)
+    data = {'success': 'You have been successfully added to mailing list'}
+
+    return JsonResponse(data)
