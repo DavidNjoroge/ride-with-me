@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .forms import ProfileForm
-from .models import Passenger_Profile
+from .models import Passenger_Profile,Location
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
@@ -44,7 +44,7 @@ def ajax_locale(request):
     user_id=request.POST.get('user_id')
 
     profile_up=Passenger_Profile()
-    
+    new_location=Location(home_lat=home_lat,home_lng=home_lng,dest_lat=dest_lat,dest_lng=dest_lng,user=request.user)    
     print(user_id)
     data = {'success': 'You have been successfully added to mailing list'}
 
