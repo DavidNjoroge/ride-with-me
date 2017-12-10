@@ -9,8 +9,14 @@ $(document).ready(function(){
             zoom:11
             
         }
+        // var marker = new google.maps.Marker({
+        //     position: myLatLng,
+        //     map: map,
+        //     title: 'Hello World!'
+        // });
+
         var map = new google.maps.Map(document.getElementById("map-sample"),mapOptions);
-        var searchBox = new google.maps.places.SearchBox('nairobi');
+        // var searchBox = new google.maps.places.SearchBox('nairobi');
         console.log('javascript is loading')
         
         // geocoder.geocode( { 'address': address}, function(results, status) {
@@ -50,11 +56,25 @@ $(document).ready(function(){
             // Browser doesn't support Geolocation
             handleLocationError(false, infoWindow, map.getCenter());
         }
+        google.maps.event.addDomListener(window, 'load', loadMap);
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(-1.2682643, 36.81112140000005),
+            map: map,
+            title: 'Hello World!'
+            
+        }); 
 
      }
-    google.maps.event.addDomListener(window, 'load', loadMap);
-
-
+    loadMap()
+    // var marker = new google.maps.Marker({
+    //     position: myLatLng,
+    //     map: map,
+    //     title: 'Hello World!'
+    // });
+    // var marker = new google.maps.Marker({
+    //     position: new google.maps.LatLng(locati.lat(), locati.lng()),
+    //     map: map,
+    // });
     // function codeAddress() {
     //     var address = $("#work").text()
     //     var addressWork = $("#work").text()

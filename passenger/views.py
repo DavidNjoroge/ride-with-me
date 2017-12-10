@@ -46,19 +46,13 @@ def ajax_locale(request):
 
     profile_up=Passenger_Profile()
     new_location=Location(home_lat=home_lat,home_lng=home_lng,dest_lat=dest_lat,dest_lng=dest_lng)
-    # new_location.update()
     current_user=User.objects.get(pk=user_id) 
-    # current_user.location=(home_lat=home_lat,home_lng=home_lng,dest_lat=dest_lat,dest_lng=dest_lng)
     current_user.location.home_lat=home_lat
     current_user.location.home_lng=home_lng
     current_user.location.dest_lat=dest_lat
     current_user.location.dest_lng=dest_lng
     
     current_user.location.save()
-    # current_location=new_location
-    # current_location.save()
-    print(user_id)
-    # current_user.location=(home_lat=home_lat,home_lng=home_lng,dest_lat=dest_lat,dest_lng=dest_lng)
     data = {'success': 'your location has been succesfully saved'}
 
     return JsonResponse(data)
