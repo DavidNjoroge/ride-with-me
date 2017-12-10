@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .forms import ProfileForm
-from .models import Profile,LocationDriver
+from .models import Profile,LocationDriver,MyPassenger
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.contrib.auth.models import User
@@ -15,11 +15,11 @@ def index(request):
 @login_required(login_url='/accounts/login/')
 def home(request):
     are=Profile.objects.filter(User=request.user)
-    print(len(are))
+    # print(len(are))
     if len(are) !=1:
         return redirect('/driver/setup/')
-
-    
+    passengers=MyPassenger.get_driver_passengers(request.user)
+    print(len(passengers))
     return render(request,'home.html')
 
 def setup(request):

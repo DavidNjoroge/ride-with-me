@@ -2,9 +2,12 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .forms import ProfileForm
 from .models import Passenger_Profile,Location
+from driver.models import LocationDriver
 from django.http import JsonResponse
 from django.contrib.auth.models import User
+from driver.models import Profile
 from django.views.decorators.csrf import csrf_exempt
+from .serializer import DriverSerializer
 # Create your views here.
 @login_required(login_url='/accounts/login/')
 def homeq(request):
@@ -12,7 +15,9 @@ def homeq(request):
     # print(len(are))
     if len(are) !=1:
         return redirect('/passenger/setup/')
-    return render(request,'homepass.html')
+    drivers=Profile.objects.all()
+    print(len(drivers))
+    return render(request,'homepass.html',{'drivers':drivers})
 
 def setup(request):
     form=ProfileForm()
@@ -56,3 +61,8 @@ def ajax_locale(request):
     data = {'success': 'your location has been succesfully saved'}
 
     return JsonResponse(data)
+
+def ajax_driver(request):
+    all_drivers=LocationDriver.objects.all()
+    serializers= DriverSerializer(all_drivers,many=True)
+    return JsonResponse(serializers.data)

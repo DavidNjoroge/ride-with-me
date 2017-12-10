@@ -32,6 +32,22 @@
                         <p><strong>Capacity:</strong> 4</p>
                         
                     </div>
+                    <div class="profile-box">
+                            <div class="title">
+                                <h5><strong><a href="/driver/passengers">My Passengers</a></strong></h5>
+                            </div>
+                            <div class="profile-body">
+                                <ul>
+                                    {% for driver in drivers %}
+                                    <p>name: {{driver.User.username}} || location: Uthiru</p>
+                                    {% endfor %}
+                                </ul>
+                                <!-- <p><strong>home location:</strong> <span id="home">{{user.profile.home}}</span></p>
+                                <p><strong>work location:</strong> <span id="work">Nairobi</span></p>
+                                <p><strong>Capacity:</strong> 4</p> -->
+                                
+                            </div>  
+                        </div>
 
                 </div>
             </div>    

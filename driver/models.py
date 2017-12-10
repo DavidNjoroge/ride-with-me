@@ -3,7 +3,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
 from django_google_maps import fields as map_fields
-
+from passenger.models import Location
 
 # Create your models here.
 class Profile(models.Model):
@@ -21,4 +21,14 @@ class LocationDriver(models.Model):
     home_lng=models.FloatField()
     dest_lat=models.FloatField()
     dest_lng=models.FloatField()
+
+class MyPassenger(models.Model):
+    driver_user=models.ForeignKey(User,on_delete=models.CASCADE)
+    passenger_user=models.IntegerField()
+
+    @classmethod
+    def get_driver_passengers(cls,driver):
+        passengers=MyPassenger.objects.filter(driver_user=driver)
+        return passengers
+        
     
