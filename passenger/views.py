@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import ProfileForm
 from .models import Passenger_Profile,Location
 from django.http import JsonResponse
+from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 @login_required(login_url='/accounts/login/')
@@ -44,8 +45,20 @@ def ajax_locale(request):
     user_id=request.POST.get('user_id')
 
     profile_up=Passenger_Profile()
-    new_location=Location(home_lat=home_lat,home_lng=home_lng,dest_lat=dest_lat,dest_lng=dest_lng,user=request.user)    
+    new_location=Location(home_lat=home_lat,home_lng=home_lng,dest_lat=dest_lat,dest_lng=dest_lng)
+    # new_location.update()
+    current_user=User.objects.get(pk=user_id) 
+    # current_user.location=(home_lat=home_lat,home_lng=home_lng,dest_lat=dest_lat,dest_lng=dest_lng)
+    current_user.location.home_lat=home_lat
+    current_user.location.home_lng=home_lng
+    current_user.location.dest_lat=dest_lat
+    current_user.location.dest_lng=dest_lng
+    
+    current_user.location.save()
+    # current_location=new_location
+    # current_location.save()
     print(user_id)
-    data = {'success': 'You have been successfully added to mailing list'}
+    # current_user.location=(home_lat=home_lat,home_lng=home_lng,dest_lat=dest_lat,dest_lng=dest_lng)
+    data = {'success': 'your location has been succesfully saved'}
 
     return JsonResponse(data)
