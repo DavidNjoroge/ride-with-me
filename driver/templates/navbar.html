@@ -15,7 +15,9 @@
                 <!-- <li><a href="">Messages</a></li> -->
                 {% if user.is_authenticated %}
                 <li><a href="/driver/edit_profile">Profile</a></li>
+                <li><a href="/driver/edit_location">Location</a></li>
                 <li><a href="/logout">Logout</a></li>
+                
                 {% else %}
                 <li><a href="/accounts/login">Login</a></li>
                 {% endif %}
