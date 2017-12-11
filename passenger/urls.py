@@ -13,7 +13,7 @@ urlpatterns=[
     url(r'^edit_profile/$',views.edit_profile,name='passenger_edit_profile'),
     url(r'^ajax/locale/$',views.ajax_locale,name='ajax_locale'),
     url(r'^ajax/drivers/$',views.ajax_driver,name='ajax_drivers'),
-    url(r'^driver/$',views.drivers,'drivers'),
+    url(r'^driver/$',views.drivers,name='drivers'),
     url(r'^bookings/(\d+)',views.drivers),
     url(r'^book/(\d+)',views.book)
     
