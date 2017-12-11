@@ -16,3 +16,6 @@ class Location(models.Model):
     dest_lat=models.FloatField()
     dest_lng=models.FloatField()
     
+class Booking(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    driver=models.IntegerField()

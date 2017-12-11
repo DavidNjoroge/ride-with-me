@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import MoringaMerc
+# from .models import MoringaM
 from driver.models import LocationDriver
 
 class DriverSerializer(serializers.ModelSerializer):

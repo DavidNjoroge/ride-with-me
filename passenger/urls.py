@@ -12,5 +12,9 @@ urlpatterns=[
     url(r'^setup/$',views.setup,name='profile_setup'),
     url(r'^edit_profile/$',views.edit_profile,name='passenger_edit_profile'),
     url(r'^ajax/locale/$',views.ajax_locale,name='ajax_locale'),
-    url(r'^ajax/drivers/$',views.ajax_driver,name='ajax_drivers')
+    url(r'^ajax/drivers/$',views.ajax_driver,name='ajax_drivers'),
+    url(r'^driver/$',views.drivers,'drivers'),
+    url(r'^bookings/(\d+)',views.drivers),
+    url(r'^book/(\d+)',views.book)
+    
 ]

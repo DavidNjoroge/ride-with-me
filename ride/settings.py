@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'driver',
     'passenger',
     'bootstrap3',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

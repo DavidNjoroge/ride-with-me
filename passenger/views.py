@@ -1,13 +1,14 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .forms import ProfileForm
-from .models import Passenger_Profile,Location
+from .models import Passenger_Profile,Location,Booking
 from driver.models import LocationDriver
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from driver.models import Profile
 from django.views.decorators.csrf import csrf_exempt
 from .serializer import DriverSerializer
+from rest_framework.response import Response
 # Create your views here.
 @login_required(login_url='/accounts/login/')
 def homeq(request):
@@ -65,4 +66,16 @@ def ajax_locale(request):
 def ajax_driver(request):
     all_drivers=LocationDriver.objects.all()
     serializers= DriverSerializer(all_drivers,many=True)
-    return JsonResponse(serializers.data)
+    return Response(serializers.data)
+
+def drivers(request,user_id):
+    driver=User.objects.get(pk=user_id)
+    my_drivers=Location.objects.filter(user=request.user)
+    print(len(my_drivers))
+    return render(request,'drivers.html',{'driver':driver})
+def book(request,user_id):
+    driver=User.objects.get(pk=user_id)    
+    new_bookings=Booking(user=request.user,driver=user_id)
+    new_bookings.save()
+    print('done')
+    return render(request,'driversbook.html',{'driver':driver})
